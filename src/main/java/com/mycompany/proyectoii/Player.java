@@ -14,8 +14,16 @@ public class Player {
     private String contraseña;
     
     
-    public Player(String username, String password)  {
+    public Player (String username, String password)  {
         usuario = username;
         contraseña = password;
+    }
+    
+    public String getUsuario() {
+        return usuario;
+    }
+    
+    public String getContraseña() {
+        return contraseña;
     }
 }
