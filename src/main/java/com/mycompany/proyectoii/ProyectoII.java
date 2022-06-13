@@ -53,6 +53,8 @@ public class ProyectoII {
                     }
                     
                     if (login == true) {
+                        System.out.println("------------------");
+                        
                         //Menú principal
                         int opcionMenu = 0;
                         while (opcionMenu != 5) {
@@ -111,10 +113,10 @@ public class ProyectoII {
                     System.out.println("=== CREAR USUARIO ===");
                     System.out.println("Ingrese su nuevo nombre de usuario: ");
                     username = leer.next();
-                    System.out.println("Ingrese su nueva contraseña: ");
-                    password = leer.next();
                     
-                    if (battle.addPlayer(username, password) == true) {
+                    if (battle.search(username) == null) {
+                        System.out.println("Ingrese su nueva contraseña: ");
+                        password = leer.next();
                         battle.addPlayer(username, password);
                         System.out.println("Se añadió el usuario.");
                     } else {
