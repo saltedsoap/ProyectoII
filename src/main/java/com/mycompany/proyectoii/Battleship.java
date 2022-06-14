@@ -4,6 +4,8 @@
  */
 package com.mycompany.proyectoii;
 
+import java.util.Arrays;
+
 /**
  *
  * @author Jibsam
@@ -12,7 +14,7 @@ public class Battleship {
     private Player usuarios[];
     int tamaño = 1;
     
-    
+    //Constructor
     public Battleship() {
         usuarios = new Player[tamaño];
     }
@@ -29,11 +31,14 @@ public class Battleship {
     }
     
     public boolean addPlayer (String username, String password) {
+        Player usuariostemp[];
         if (search(username) == null) {
+            tamaño = tamaño + 1;
+            usuariostemp = usuarios;
+            usuarios = new Player[tamaño];
+            System.arraycopy(usuariostemp, 0, usuarios, 0, usuariostemp.length);
             for (int i = 0; i < usuarios.length; i++) {
                 if (usuarios[i] == null) {
-                    tamaño = tamaño + 1;
-                    usuarios = new Player[tamaño];
                     usuarios[i] = new Player(username, password);
                     return true;
                 }
