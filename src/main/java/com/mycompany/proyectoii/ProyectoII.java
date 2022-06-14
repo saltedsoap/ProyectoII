@@ -65,16 +65,63 @@ public class ProyectoII {
                             System.out.println("4 - Mi Perfil");
                             System.out.println("5 - Salir");
                             opcionMenu = leer.nextInt();
+                            
+                            System.out.println("------------------");
 
                             switch (opcionMenu) {
                                 case 1:
-
+                                    String jugador2 = "";
+                                    
                                     //Jugar Battleship
+                                    while(battle.search(jugador2) == null || jugador2.toUpperCase().equals("EXIT")) {
+                                        System.out.println("Ingrese el nombre de usuario del jugador 2:");
+                                        System.out.println("(Ingrese 'EXIT' para salir.)");
+                                        jugador2 = leer.next();
+                                        
+                                        if (jugador2.toUpperCase().equals("EXIT")) {
+                                            System.out.println("Regresando al menú principal.");
+                                        } else if(battle.search(jugador2) == null) {
+                                            System.out.println("*** ERROR ***");
+                                            System.out.println("El nombre de usuario no existe");
+                                        }
+                                    }
+                                    
                                     System.out.println("------------------");
                                     break;
                                 case 2:
 
                                     //Configuración
+                                    int opcionConf = 0; 
+                                    while (opcionConf != 2) {
+                                        System.out.println("=== CONFIGURACIÓN ===");
+                                        System.out.println("1 - Dificultad");
+                                        System.out.println("2 - Modo de Juego");
+                                        System.out.println("3 - Salir");
+                                        
+                                        opcionConf = leer.nextInt();
+                                        
+                                        System.out.println("------------------");
+                                        
+                                        switch (opcionConf) {
+                                            case 1:
+                                                //Dificultad
+                                                System.out.println("------------------");
+                                                break;
+                                            case 2:
+                                                //Modo de Juego
+                                                System.out.println("------------------");
+                                                break;
+                                            case 3:
+                                                //Salir
+                                                break;
+                                            default:
+                                                //Error
+                                                System.out.println("*** ERROR ***");
+                                                System.out.println("La opción no es válida");
+                                                System.out.println("------------------");
+                                                break;
+                                        }
+                                    }
                                     System.out.println("------------------");
                                     break;
                                 case 3:
@@ -130,6 +177,7 @@ public class ProyectoII {
                 case 3:
                     
                     //Salir
+                    System.out.println("Se cerró el programa.");
                     System.out.println("------------------");
                     break;
                     
